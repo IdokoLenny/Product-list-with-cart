@@ -37,6 +37,8 @@ const ItemDisplay = ({items, cart, setCart, id}) => {
     console.log(cart)
   }
 
+  
+
   return (
     <div className= "w-[100%] sm:w-[40%] lg:w-[30%] text-xs lg:text-sm">
       <div className="h-[60%] relative mb-5">
@@ -45,7 +47,7 @@ const ItemDisplay = ({items, cart, setCart, id}) => {
           startAddToCart ? 
           <div className="w-[60%] text-xs text-white flex items-center justify-between py-2 px-5 sm:px-2 rounded-[20px] absolute right-[20%] bottom-[-6%] sm:bottom-[-12%] lg:bottom-[-7%] 2xl:bottom-[-5%] bg-[#d63310] z-10">
           <img src="./assets/images/icon-decrement-quantity.svg" alt="icon" className="w-[15px] border rounded-[50%] h-[15px] p-1" onClick={() => handleChange("minus", id)} />
-          <span>{count}</span>
+          <span>{id in cart ? count : 0}</span>
           <img src="./assets/images/icon-increment-quantity.svg" alt="icon" className="w-[15px] border rounded-[50%] h-[15px] p-1" onClick={() => handleChange("add", id)} />
         </div>
         :
