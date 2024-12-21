@@ -5,18 +5,9 @@ import Cart from "./components/Cart";
 import OrderConfirmation from "./components/OrderConfirmation";
 
 function App() {
-  const [cart, setCart] = useState({})
+  const [cart, setCart] = useState([])
   const [showOrder, setShowOrder] = useState(false)
-
-  let selectedItems = [];
-    for (const [key, value] of Object.entries(cart)) {
-      data.map((item, index) => {
-          if (key == index) {
-              console.log(index)
-              selectedItems.push({...item, count : value})
-          }
-      })
-  }
+  // console.log(cart)
 
   return (
     <>
@@ -30,10 +21,10 @@ function App() {
         </div>
  
       </div>
-      <Cart cart={cart} selectedItems={selectedItems} setShowOrder={setShowOrder} setCart={setCart} />      
+      <Cart setShowOrder={setShowOrder} setCart={setCart} cart={cart} />      
     </div>
      {
-      showOrder ? <OrderConfirmation selectedItems={selectedItems} /> : ""
+      showOrder ? <OrderConfirmation cart={cart} /> : ""
     }
     </>
   );
